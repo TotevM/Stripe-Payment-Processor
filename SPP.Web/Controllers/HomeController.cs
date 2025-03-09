@@ -1,6 +1,6 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using SPP.Web.Models;
+using StripePaymentProcessor.Models;
+using System.Diagnostics;
 
 namespace SPP.Web.Controllers;
 

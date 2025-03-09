@@ -15,4 +15,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.13" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SPP.Data\SPP.Data.csproj" />
+    <ProjectReference Include="..\SPP.ViewModels\SPP.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>
