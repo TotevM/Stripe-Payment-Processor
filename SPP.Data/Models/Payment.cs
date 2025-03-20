@@ -16,8 +16,7 @@ namespace SPP.Data.Models
         public string PaymentStatus { get; set; }
         public DateTime PaymentDate { get; set; }
         public string StripeSessionId { get; set; }
-
         public virtual ApplicationUser User { get; set; }
-        public virtual Plan Plan { get; set; }
-    }
+		public Order Order { get; set; } = null!;
+	}
 }
