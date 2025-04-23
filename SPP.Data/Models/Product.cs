@@ -1,4 +1,4 @@
-﻿public class Jewelry
+﻿public class Product
 {
 	public Guid Id { get; set; }
 	public string Name { get; set; } = null!;
@@ -7,6 +7,5 @@
 	public MaterialType Material { get; set; }
 	public JewelryType Type { get; set; }
 	public string? ImageUrl { get; set; }
-	public ICollection<JewelryCategory> JewelryCategories { get; set; } = new List<JewelryCategory>();
-	public ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+	public ICollection<OrderItem> OrderDetails { get; set; } = new List<OrderItem>();
 }

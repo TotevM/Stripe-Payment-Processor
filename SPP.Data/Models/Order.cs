@@ -2,14 +2,12 @@
 
 public class Order
 {
-	public Guid Id { get; set; }
-	public DateTime OrderDate { get; set; }
-	public Guid UserId { get; set; }
-	public ApplicationUser User { get; set; } = null!;
+    public Guid Id { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-	public Guid PaymentId { get; set; }
-	public Payment Payment { get; set; } = null!;
+    public string UserId { get; set; }
+    public ApplicationUser User { get; set; }
 
-	// Navigation
-	public ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+    public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
 }
+
