@@ -1,0 +1,122 @@
+﻿[
+  {
+    "Name": "Golden Elegance Ring",
+    "Description": "A timeless 18K gold ring with a minimalist design.",
+    "Price": 249.99,
+    "Material": 0,
+    "Type": 0,
+    "ImageUrl": "https://example.com/images/golden-ring.jpg"
+  },
+  {
+    "Name": "Silver Harmony Bracelet",
+    "Description": "Elegant silver bracelet with intricate patterns.",
+    "Price": 99.50,
+    "Material": 1,
+    "Type": 2,
+    "ImageUrl": "https://example.com/images/silver-bracelet.jpg"
+  },
+  {
+    "Name": "Platinum Grace Necklace",
+    "Description": "Luxurious platinum necklace, perfect for formal occasions.",
+    "Price": 399.00,
+    "Material": 2,
+    "Type": 1,
+    "ImageUrl": "https://example.com/images/platinum-necklace.jpg"
+  },
+  {
+    "Name": "Rose Gold Spark Earrings",
+    "Description": "Stylish rose gold earrings with sparkling stones.",
+    "Price": 120.75,
+    "Material": 3,
+    "Type": 3,
+    "ImageUrl": "https://example.com/images/rose-earrings.jpg"
+  },
+  {
+    "Name": "Titanium Edge Ring",
+    "Description": "Modern titanium ring designed for durability and style.",
+    "Price": 89.99,
+    "Material": 4,
+    "Type": 0,
+    "ImageUrl": "https://example.com/images/titanium-ring.jpg"
+  },
+  {
+    "Name": "Golden Leaf Pendant",
+    "Description": "18K gold pendant shaped like a delicate leaf.",
+    "Price": 149.95,
+    "Material": 0,
+    "Type": 4,
+    "ImageUrl": "https://example.com/images/golden-pendant.jpg"
+  },
+  {
+    "Name": "Silver Drop Earrings",
+    "Description": "Sleek silver drop earrings for everyday elegance.",
+    "Price": 59.90,
+    "Material": 1,
+    "Type": 3,
+    "ImageUrl": "https://example.com/images/silver-earrings.jpg"
+  },
+  {
+    "Name": "Platinum Circle Pendant",
+    "Description": "Platinum pendant with a geometric circle design.",
+    "Price": 210.00,
+    "Material": 2,
+    "Type": 4,
+    "ImageUrl": "https://example.com/images/platinum-pendant.jpg"
+  },
+  {
+    "Name": "Rose Gold Infinity Bracelet",
+    "Description": "Delicate rose gold bracelet featuring an infinity symbol.",
+    "Price": 130.45,
+    "Material": 3,
+    "Type": 2,
+    "ImageUrl": "https://example.com/images/rose-bracelet.jpg"
+  },
+  {
+    "Name": "Titanium Cuff Bracelet",
+    "Description": "Contemporary titanium cuff bracelet with matte finish.",
+    "Price": 110.00,
+    "Material": 4,
+    "Type": 2,
+    "ImageUrl": "https://example.com/images/titanium-bracelet.jpg"
+  },
+  {
+    "Name": "Gold Heart Necklace",
+    "Description": "Charming heart-shaped necklace in 14K gold.",
+    "Price": 185.75,
+    "Material": 0,
+    "Type": 1,
+    "ImageUrl": "https://example.com/images/gold-heart-necklace.jpg"
+  },
+  {
+    "Name": "Silver Charm Pendant",
+    "Description": "Simple silver pendant perfect for any chain.",
+    "Price": 75.00,
+    "Material": 1,
+    "Type": 4,
+    "ImageUrl": "https://example.com/images/silver-charm.jpg"
+  },
+  {
+    "Name": "Platinum Band Ring",
+    "Description": "Classic platinum band ring with polished surface.",
+    "Price": 325.00,
+    "Material": 2,
+    "Type": 0,
+    "ImageUrl": "https://example.com/images/platinum-band.jpg"
+  },
+  {
+    "Name": "Rose Gold Teardrop Necklace",
+    "Description": "Rose gold necklace with teardrop-shaped pendant.",
+    "Price": 145.60,
+    "Material": 3,
+    "Type": 1,
+    "ImageUrl": "https://example.com/images/rose-necklace.jpg"
+  },
+  {
+    "Name": "Titanium Stud Earrings",
+    "Description": "Minimalist titanium stud earrings for daily wear.",
+    "Price": 70.20,
+    "Material": 4,
+    "Type": 3,
+    "ImageUrl": "https://example.com/images/titanium-earrings.jpg"
+  }
+]
