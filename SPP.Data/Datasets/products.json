@@ -5,7 +5,7 @@
     "Price": 249.99,
     "Material": 0,
     "Type": 0,
-    "ImageUrl": "https://example.com/images/golden-ring.jpg"
+    "ImageUrl": "https://pristinediam.com/cdn/shop/files/205-JBDHR023_d2c71aeb-7026-49e6-8a02-56ea425ea375.jpg?v=1713180188"
   },
   {
     "Name": "Silver Harmony Bracelet",
@@ -13,7 +13,7 @@
     "Price": 99.50,
     "Material": 1,
     "Type": 2,
-    "ImageUrl": "https://example.com/images/silver-bracelet.jpg"
+    "ImageUrl": "https://bycharlotte.com.au/cdn/shop/files/b111g18-silver-path-to-harmony-bracelet-silver-1_ae8ef8c3-0653-4b5f-beb1-a120ee267f11.jpg?v=1701840881"
   },
   {
     "Name": "Platinum Grace Necklace",
@@ -21,23 +21,15 @@
     "Price": 399.00,
     "Material": 2,
     "Type": 1,
-    "ImageUrl": "https://example.com/images/platinum-necklace.jpg"
+    "ImageUrl": "https://prod-images.fashionphile.com/large/f251f548e9fece17727ed01b2a3f25ca/e817ed6237c197aa468a9dd8552aa0e0.jpg"
   },
   {
-    "Name": "Rose Gold Spark Earrings",
-    "Description": "Stylish rose gold earrings with sparkling stones.",
+    "Name": "Diamond Spark Earrings",
+    "Description": "Stylish diamond earrings with sparkling clarity.",
     "Price": 120.75,
     "Material": 3,
     "Type": 3,
-    "ImageUrl": "https://example.com/images/rose-earrings.jpg"
-  },
-  {
-    "Name": "Titanium Edge Ring",
-    "Description": "Modern titanium ring designed for durability and style.",
-    "Price": 89.99,
-    "Material": 4,
-    "Type": 0,
-    "ImageUrl": "https://example.com/images/titanium-ring.jpg"
+    "ImageUrl": "https://www.alighieri.com/cdn/shop/products/17_SALT_PEPPEREARRINGS_3.png?crop=center&height=1275&v=1676895899&width=1080"
   },
   {
     "Name": "Golden Leaf Pendant",
@@ -45,7 +37,7 @@
     "Price": 149.95,
     "Material": 0,
     "Type": 4,
-    "ImageUrl": "https://example.com/images/golden-pendant.jpg"
+    "ImageUrl": "https://res.cloudinary.com/lbh-prod/image/fetch/w_1000,f_auto,q_auto/https://www.ross-simons.com/on/demandware.static/-/Sites-lbh-master/default/dw28ac017c/images/jewelry-gold-necklaces/953253.jpg"
   },
   {
     "Name": "Silver Drop Earrings",
@@ -53,31 +45,23 @@
     "Price": 59.90,
     "Material": 1,
     "Type": 3,
-    "ImageUrl": "https://example.com/images/silver-earrings.jpg"
+    "ImageUrl": "https://www.jonrichard.com/images/simply-silver-sterling-silver-925-cubic-zirconia-wrapped-in-love-drop-earrings-p46628-58939_zoom.jpg"
   },
   {
-    "Name": "Platinum Circle Pendant",
-    "Description": "Platinum pendant with a geometric circle design.",
+    "Name": "Platinum Circle Brooch",
+    "Description": "Platinum brooch with a geometric circle design.",
     "Price": 210.00,
     "Material": 2,
     "Type": 4,
-    "ImageUrl": "https://example.com/images/platinum-pendant.jpg"
+    "ImageUrl": "https://dsfantiquejewelry.com/cdn/shop/files/J.E.Caldwell_Co.DiamondBrooch.jpg?v=1739836183&width=2048"
   },
   {
-    "Name": "Rose Gold Infinity Bracelet",
-    "Description": "Delicate rose gold bracelet featuring an infinity symbol.",
+    "Name": "Diamond Infinity Bracelet",
+    "Description": "Delicate diamond bracelet featuring an infinity symbol.",
     "Price": 130.45,
     "Material": 3,
     "Type": 2,
-    "ImageUrl": "https://example.com/images/rose-bracelet.jpg"
-  },
-  {
-    "Name": "Titanium Cuff Bracelet",
-    "Description": "Contemporary titanium cuff bracelet with matte finish.",
-    "Price": 110.00,
-    "Material": 4,
-    "Type": 2,
-    "ImageUrl": "https://example.com/images/titanium-bracelet.jpg"
+    "ImageUrl": "https://www.jared.com/productimages/processed/V-211665803_0_800.jpg?pristine=true"
   },
   {
     "Name": "Gold Heart Necklace",
@@ -85,15 +69,15 @@
     "Price": 185.75,
     "Material": 0,
     "Type": 1,
-    "ImageUrl": "https://example.com/images/gold-heart-necklace.jpg"
+    "ImageUrl": "https://danielladraper.com/cdn/shop/files/babyheartnecklacegold2_1.jpg?v=1705493046&width=3200"
   },
   {
-    "Name": "Silver Charm Pendant",
-    "Description": "Simple silver pendant perfect for any chain.",
+    "Name": "Silver Charm Brooch",
+    "Description": "Simple silver brooch perfect for any outfit.",
     "Price": 75.00,
     "Material": 1,
     "Type": 4,
-    "ImageUrl": "https://example.com/images/silver-charm.jpg"
+    "ImageUrl": "https://efsterling.com/cdn/shop/products/by2-st.jpg?v=1525401307"
   },
   {
     "Name": "Platinum Band Ring",
@@ -101,22 +85,38 @@
     "Price": 325.00,
     "Material": 2,
     "Type": 0,
-    "ImageUrl": "https://example.com/images/platinum-band.jpg"
+    "ImageUrl": "https://www.auronia.co.uk/media/catalog/product/V/R/VR201-0.05-PT-950-default.jpg"
   },
   {
-    "Name": "Rose Gold Teardrop Necklace",
-    "Description": "Rose gold necklace with teardrop-shaped pendant.",
+    "Name": "Diamond Teardrop Necklace",
+    "Description": "Diamond necklace with a teardrop-shaped pendant.",
     "Price": 145.60,
     "Material": 3,
     "Type": 1,
-    "ImageUrl": "https://example.com/images/rose-necklace.jpg"
+    "ImageUrl": "https://elementbespokejewellery.com/cdn/shop/products/ElementBespokeJewelleryBirmingham_diamondnecklace_1_2048x2048.jpg?v=1611150359"
   },
   {
-    "Name": "Titanium Stud Earrings",
-    "Description": "Minimalist titanium stud earrings for daily wear.",
-    "Price": 70.20,
+    "Name": "Pearl Drop Earrings",
+    "Description": "Elegant pearl drop earrings with a classic style.",
+    "Price": 89.20,
     "Material": 4,
     "Type": 3,
-    "ImageUrl": "https://example.com/images/titanium-earrings.jpg"
+    "ImageUrl": "https://hamiltonandinches.com/media/catalog/product/cache/9181a0a2f38e4d88d07b3ff1853f6e95/0/0/00-25177.jpg"
+  },
+  {
+    "Name": "Pearl Charm Bracelet",
+    "Description": "Graceful pearl bracelet with small charms.",
+    "Price": 112.30,
+    "Material": 4,
+    "Type": 2,
+    "ImageUrl": "https://www.bibaandrose.co.uk/wp-content/uploads/2020/03/charm-br.jpg"
+  },
+  {
+    "Name": "Gold Solitaire Ring",
+    "Description": "Elegant gold ring featuring a solitaire design.",
+    "Price": 275.99,
+    "Material": 0,
+    "Type": 0,
+    "ImageUrl": "https://www.jared.com/productimages/processed/V-161321702_1_800.jpg?pristine=true"
   }
 ]
