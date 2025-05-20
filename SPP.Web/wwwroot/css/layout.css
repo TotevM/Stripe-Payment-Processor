@@ -1,0 +1,62 @@
+﻿body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fdfdfd;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #fdf6f0 0%, #fff 100%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #8B5E3C !important;
+}
+
+.nav-link {
+    color: #5a4d41 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #a67c52 !important;
+}
+
+.btn-cart {
+    background-color: #a67c52;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cart:hover {
+    background-color: #8b5e3c;
+}
+
+footer {
+    background: linear-gradient(90deg, #fdf6f0 0%, #fff 100%);
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+footer a {
+    color: #8B5E3C;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #a67c52;
+}
+
+.container {
+    padding-bottom: 0;
+}
