@@ -46,7 +46,7 @@
                 <div class="testimonial-content">
                     <p>"The craftsmanship of Luxora's pieces is simply extraordinary. Each piece tells a unique story."</p>
                     <div class="testimonial-author">
-                        <img src="~/images/client1.jpg" alt="Sarah Johnson">
+                        <img src="~/appimg/clients/Sarah.jpg" alt="Sarah Johnson">
                         <div class="author-info">
                             <h4>Sarah Johnson</h4>
                             <div class="rating">★★★★★</div>
@@ -58,7 +58,7 @@
                 <div class="testimonial-content">
                     <p>"I've never seen such attention to detail. The quality of their jewelry is unmatched."</p>
                     <div class="testimonial-author">
-                        <img src="~/images/client2.jpg" alt="Michael Chen">
+                        <img src="~/appimg/clients/Michael.jpg" alt="Michael Chen">
                         <div class="author-info">
                             <h4>Michael Chen</h4>
                             <div class="rating">★★★★★</div>
@@ -70,7 +70,7 @@
                 <div class="testimonial-content">
                     <p>"Luxora's pieces are not just jewelry, they're works of art that become family heirlooms."</p>
                     <div class="testimonial-author">
-                        <img src="~/images/client3.jpg" alt="Emma Thompson">
+                        <img src="~/appimg/clients/Emma.jpg" alt="Emma Thompson">
                         <div class="author-info">
                             <h4>Emma Thompson</h4>
                             <div class="rating">★★★★★</div>
@@ -84,42 +84,4 @@
 
 @section Scripts {
     <script src="~/js/index.js" asp-append-version="true"></script>
-}
-
-@section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            window.addEventListener('scroll', function() {
-                const hero = document.querySelector('.hero-section');
-                const scrolled = window.pageYOffset;
-                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-            });
-
-            let currentSlide = 0;
-            const testimonials = document.querySelectorAll('.testimonial-card');
-            
-            function showSlide(index) {
-                testimonials.forEach((testimonial, i) => {
-                    testimonial.style.transform = `translateX(${100 * (i - index)}%)`;
-                    testimonial.style.opacity = i === index ? '1' : '0.5';
-                });
-            }
-
-            showSlide(currentSlide);
-
-            setInterval(() => {
-                currentSlide = (currentSlide + 1) % testimonials.length;
-                showSlide(currentSlide);
-            }, 5000);
-
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
 }
