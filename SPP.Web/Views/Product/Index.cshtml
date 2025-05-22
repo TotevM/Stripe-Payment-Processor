@@ -22,15 +22,15 @@
                         <div class="card-img-overlay d-flex align-items-center justify-content-center">
                             <div class="btn-group">
                                 <a href="#" class="btn btn-outline-light btn-sm me-2">View Details</a>
-                                <button class="btn btn-primary btn-sm add-to-cart" data-product-id="@product.Id">
-                                    <i class="fas fa-shopping-cart me-1"></i>Add to Cart
-                                </button>
+                                <a asp-controller="Product" asp-action="AddToCart" asp-route-id="@product.Id" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-shopping-cart me-1"></i>
+                                    Add to Cart
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold">@product.Name</h5>
-                        @* <p class="card-text text-muted mb-2">@product.Description</p> *@
                         <div class="d-flex justify-content-between align-items-center mt-auto">
                             <span class="h5 mb-0 text-primary">$@product.Price</span>
                             <span class="badge bg-success">In Stock</span>

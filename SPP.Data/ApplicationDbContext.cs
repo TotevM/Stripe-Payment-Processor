@@ -9,7 +9,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     public DbSet<Product> Products { get; set; }
-    public DbSet<Order> Orders { get; set; }
+    public DbSet<Cart> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
