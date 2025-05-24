@@ -8,6 +8,6 @@ public class Order
     public bool IsPaid { get; set; } = false;
     public string UserId { get; set; } = null!;
     public ApplicationUser User { get; set; } = null!;
-    public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
+    public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 }
 
