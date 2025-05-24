@@ -5,6 +5,6 @@ namespace SPP.Data.Models
     public class ApplicationUser : IdentityUser
     {
         public string FullName { get; set; }
-        public ICollection<Cart> Orders { get; set; } = new List<Cart>();
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
     }
 }

@@ -9,7 +9,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     public DbSet<Product> Products { get; set; }
-    public DbSet<Cart> Orders { get; set; }
+    public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -17,10 +17,5 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         base.OnModelCreating(builder);
 
         builder.ApplyConfiguration(new ProductConfiguration());
-        //builder.Entity<Product>().HasData(
-        //    new Product { Id = Guid.NewGuid(), Name = "Gold Necklace", Description = "24k gold", Price = 199.99m },
-        //    new Product { Id = Guid.NewGuid(), Name = "Silver Ring", Description = "Sterling silver", Price = 49.99m },
-        //    new Product { Id = Guid.NewGuid(), Name = "Diamond Earrings", Description = "Genuine diamonds", Price = 299.99m }
-        //);
     }
 }

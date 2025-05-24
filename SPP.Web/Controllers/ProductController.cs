@@ -43,44 +43,52 @@ namespace SPP.Web.Controllers
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index", "Product") });
             }
 
-            // Get or create cart
-            var cart = await context.Orders
-                .Include(c => c.Items)
-                .ThenInclude(i => i.Product)
-                .FirstOrDefaultAsync(c => c.UserId == userId && c.FinalizedAt == default);
+            //check if the cart exists
+            Order? cart = await context.Orders.OrderByDescending(c => c.CreatedAt)
+                .FirstOrDefaultAsync(c => c.UserId == userId);
 
+            //if the cart doesnt exists, create a cart and add the product to it
             if (cart == null)
             {
-                cart = new Cart
+                cart = new Order
                 {
-                    Id = Guid.NewGuid(),
                     UserId = userId,
                     CreatedAt = DateTime.UtcNow,
-                    Items = new List<OrderItem>()
+                    Items = new List<OrderItem>(),
                 };
-                context.Orders.Add(cart);
-            }
 
-            // Check if product already exists in cart
-            var existingItem = cart.Items.FirstOrDefault(i => i.ProductId == product.Id);
-            if (existingItem != null)
-            {
-                existingItem.Quantity++;
-            }
-            else
-            {
-                cart.Items.Add(new OrderItem
+                var orderItem = new OrderItem
                 {
-                    Id = Guid.NewGuid(),
-                    ProductId = product.Id,
-                    OrderId = cart.Id,
-                    Quantity = 1,
-                    PriceAtPurchase = product.Price
-                });
+                    OrderId = Guid.NewGuid(),
+                    ProductId = id,
+                    Quantity = 1
+                };
+
+                cart.Items.Add(orderItem);
             }
 
-            await context.SaveChangesAsync();
-            TempData["SuccessMessage"] = $"{product.Name} added to cart successfully!";
+            //if cart exists, check if the product exists in the cart
+            if (cart != null)
+            {
+                var orderItem = new OrderItem
+                {
+                    OrderId = Guid.NewGuid(),
+                    ProductId = id,
+                    Quantity = 1
+                };
+
+                cart.Items.Add(orderItem);
+            }
+
+
+            //var orderItem = new OrderItem
+            //{
+            //    OrderId = Guid.NewGuid(),
+            //    ProductId = product.Id,
+            //    Quantity = 1
+            //};
+
+
             return RedirectToAction(nameof(Index));
         }
     }

@@ -3,120 +3,120 @@
     "Name": "Golden Elegance Ring",
     "Description": "A timeless 18K gold ring with a minimalist design.",
     "Price": 249.99,
-    "Material": 0,
-    "Type": 0,
+    "Material": "Gold",
+    "Type": "Ring",
     "ImageUrl": "https://pristinediam.com/cdn/shop/files/205-JBDHR023_d2c71aeb-7026-49e6-8a02-56ea425ea375.jpg?v=1713180188"
   },
   {
     "Name": "Silver Harmony Bracelet",
     "Description": "Elegant silver bracelet with intricate patterns.",
     "Price": 99.50,
-    "Material": 1,
-    "Type": 2,
+    "Material": "Silver",
+    "Type": "Bracelet",
     "ImageUrl": "https://bycharlotte.com.au/cdn/shop/files/b111g18-silver-path-to-harmony-bracelet-silver-1_ae8ef8c3-0653-4b5f-beb1-a120ee267f11.jpg?v=1701840881"
   },
   {
     "Name": "Platinum Grace Necklace",
     "Description": "Luxurious platinum necklace, perfect for formal occasions.",
     "Price": 399.00,
-    "Material": 2,
-    "Type": 1,
+    "Material": "Platinum",
+    "Type": "Necklace",
     "ImageUrl": "https://prod-images.fashionphile.com/large/f251f548e9fece17727ed01b2a3f25ca/e817ed6237c197aa468a9dd8552aa0e0.jpg"
   },
   {
     "Name": "Diamond Spark Earrings",
     "Description": "Stylish diamond earrings with sparkling clarity.",
     "Price": 120.75,
-    "Material": 3,
-    "Type": 3,
+    "Material": "Diamond",
+    "Type": "Earring",
     "ImageUrl": "https://www.alighieri.com/cdn/shop/products/17_SALT_PEPPEREARRINGS_3.png?crop=center&height=1275&v=1676895899&width=1080"
   },
   {
     "Name": "Golden Leaf Pendant",
     "Description": "18K gold pendant shaped like a delicate leaf.",
     "Price": 149.95,
-    "Material": 0,
-    "Type": 4,
+    "Material": "Gold",
+    "Type": "Brooch",
     "ImageUrl": "https://res.cloudinary.com/lbh-prod/image/fetch/w_1000,f_auto,q_auto/https://www.ross-simons.com/on/demandware.static/-/Sites-lbh-master/default/dw28ac017c/images/jewelry-gold-necklaces/953253.jpg"
   },
   {
     "Name": "Silver Drop Earrings",
     "Description": "Sleek silver drop earrings for everyday elegance.",
     "Price": 59.90,
-    "Material": 1,
-    "Type": 3,
+    "Material": "Silver",
+    "Type": "Earring",
     "ImageUrl": "https://www.jonrichard.com/images/simply-silver-sterling-silver-925-cubic-zirconia-wrapped-in-love-drop-earrings-p46628-58939_zoom.jpg"
   },
   {
     "Name": "Platinum Circle Brooch",
     "Description": "Platinum brooch with a geometric circle design.",
     "Price": 210.00,
-    "Material": 2,
-    "Type": 4,
+    "Material": "Platinum",
+    "Type": "Brooch",
     "ImageUrl": "https://dsfantiquejewelry.com/cdn/shop/files/J.E.Caldwell_Co.DiamondBrooch.jpg?v=1739836183&width=2048"
   },
   {
     "Name": "Diamond Infinity Bracelet",
     "Description": "Delicate diamond bracelet featuring an infinity symbol.",
     "Price": 130.45,
-    "Material": 3,
-    "Type": 2,
+    "Material": "Diamond",
+    "Type": "Bracelet",
     "ImageUrl": "https://www.jared.com/productimages/processed/V-211665803_0_800.jpg?pristine=true"
   },
   {
     "Name": "Gold Heart Necklace",
     "Description": "Charming heart-shaped necklace in 14K gold.",
     "Price": 185.75,
-    "Material": 0,
-    "Type": 1,
+    "Material": "Gold",
+    "Type": "Necklace",
     "ImageUrl": "https://danielladraper.com/cdn/shop/files/babyheartnecklacegold2_1.jpg?v=1705493046&width=3200"
   },
   {
     "Name": "Silver Charm Brooch",
     "Description": "Simple silver brooch perfect for any outfit.",
     "Price": 75.00,
-    "Material": 1,
-    "Type": 4,
+    "Material": "Silver",
+    "Type": "Brooch",
     "ImageUrl": "https://efsterling.com/cdn/shop/products/by2-st.jpg?v=1525401307"
   },
   {
     "Name": "Platinum Band Ring",
     "Description": "Classic platinum band ring with polished surface.",
     "Price": 325.00,
-    "Material": 2,
-    "Type": 0,
+    "Material": "Platinum",
+    "Type": "Ring",
     "ImageUrl": "https://www.auronia.co.uk/media/catalog/product/V/R/VR201-0.05-PT-950-default.jpg"
   },
   {
     "Name": "Diamond Teardrop Necklace",
     "Description": "Diamond necklace with a teardrop-shaped pendant.",
     "Price": 145.60,
-    "Material": 3,
-    "Type": 1,
+    "Material": "Diamond",
+    "Type": "Necklace",
     "ImageUrl": "https://elementbespokejewellery.com/cdn/shop/products/ElementBespokeJewelleryBirmingham_diamondnecklace_1_2048x2048.jpg?v=1611150359"
   },
   {
     "Name": "Pearl Drop Earrings",
     "Description": "Elegant pearl drop earrings with a classic style.",
     "Price": 89.20,
-    "Material": 4,
-    "Type": 3,
+    "Material": "Pearl",
+    "Type": "Earring",
     "ImageUrl": "https://hamiltonandinches.com/media/catalog/product/cache/9181a0a2f38e4d88d07b3ff1853f6e95/0/0/00-25177.jpg"
   },
   {
     "Name": "Pearl Charm Bracelet",
     "Description": "Graceful pearl bracelet with small charms.",
     "Price": 112.30,
-    "Material": 4,
-    "Type": 2,
+    "Material": "Pearl",
+    "Type": "Bracelet",
     "ImageUrl": "https://www.bibaandrose.co.uk/wp-content/uploads/2020/03/charm-br.jpg"
   },
   {
     "Name": "Gold Solitaire Ring",
     "Description": "Elegant gold ring featuring a solitaire design.",
     "Price": 275.99,
-    "Material": 0,
-    "Type": 0,
+    "Material": "Gold",
+    "Type": "Ring",
     "ImageUrl": "https://www.jared.com/productimages/processed/V-161321702_1_800.jpg?pristine=true"
   }
 ]
