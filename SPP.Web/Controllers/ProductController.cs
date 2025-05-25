@@ -68,19 +68,31 @@ namespace SPP.Web.Controllers
             if (existingItem != null)
             {
                 existingItem.Quantity += 1;
+                context.OrderItems.Update(existingItem);
             }
             else
             {
-                cart.OrderItems.Add(new OrderItem
+                var newItem = new OrderItem
                 {
                     Id = Guid.NewGuid(),
                     ProductId = id,
+                    OrderId = cart.Id,
                     Quantity = 1
-                });
+                };
+                context.OrderItems.Add(newItem);
             }
 
-            await context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            try
+            {
+                await context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                // If we get a concurrency exception, reload the cart and try again
+                context.ChangeTracker.Clear();
+                return await AddToCart(id);
+            }
         }
     }
 }
