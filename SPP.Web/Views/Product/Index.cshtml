@@ -22,10 +22,13 @@
                         <div class="card-img-overlay d-flex align-items-center justify-content-center">
                             <div class="btn-group">
                                 <a href="#" class="btn btn-outline-light btn-sm me-2">View Details</a>
-                                <a asp-controller="Product" asp-action="AddToCart" asp-route-id="@product.Id" class="btn btn-primary btn-sm">
-                                    <i class="fas fa-shopping-cart me-1"></i>
-                                    Add to Cart
-                                </a>
+                                <form asp-controller="Product" asp-action="AddToCart" asp-route-id="@product.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-shopping-cart me-1"></i>
+                                        Add to Cart
+                                    </button>
+                                </form>
+
                             </div>
                         </div>
                     </div>

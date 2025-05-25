@@ -35,68 +35,6 @@ namespace SPP.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToCart(Guid id)
         {
-            //// Check if the product exists
-            //var product = await context.Products.FindAsync(id);
-            //if (product == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //// Check if the user exists
-            //string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            //if (string.IsNullOrEmpty(userId))
-            //{
-            //    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index", "Product") });
-            //}
-
-            ////check if the cart exists
-            //Order? cart = await context.Orders.OrderByDescending(c => c.CreatedAt)
-            //    .FirstOrDefaultAsync(c => c.UserId == userId);
-
-            ////if the cart doesnt exists, create a cart and add the product to it
-            //if (cart == null)
-            //{
-            //    cart = new Order
-            //    {
-            //        UserId = userId,
-            //        CreatedAt = DateTime.UtcNow,
-            //        Items = new List<OrderItem>(),
-            //    };
-
-            //    var orderItem = new OrderItem
-            //    {
-            //        OrderId = Guid.NewGuid(),
-            //        ProductId = id,
-            //        Quantity = 1
-            //    };
-
-            //    cart.Items.Add(orderItem);
-            //}
-
-            ////if cart exists, check if the product exists in the cart
-            //if (cart != null)
-            //{
-            //    var orderItem = new OrderItem
-            //    {
-            //        OrderId = Guid.NewGuid(),
-            //        ProductId = id,
-            //        Quantity = 1
-            //    };
-
-            //    cart.Items.Add(orderItem);
-            //}
-
-
-            ////var orderItem = new OrderItem
-            ////{
-            ////    OrderId = Guid.NewGuid(),
-            ////    ProductId = product.Id,
-            ////    Quantity = 1
-            ////};
-
-
-            //return RedirectToAction(nameof(Index));
-
             var user = await userManager.GetUserAsync(User);
             if (user == null)
                 return Unauthorized();
@@ -142,7 +80,7 @@ namespace SPP.Web.Controllers
             }
 
             await context.SaveChangesAsync();
-            return Ok("Product added to cart.");
+            return RedirectToAction("Index");
         }
     }
 }
