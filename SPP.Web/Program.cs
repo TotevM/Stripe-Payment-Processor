@@ -17,6 +17,12 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddDefaultTokenProviders()
 	.AddDefaultUI();
 
+builder.Services.AddAntiforgery(options =>
+{
+    options.HeaderName = "RequestVerificationToken";
+});
+
+
 builder.Services.AddRazorPages();
 
 builder.Services.AddControllersWithViews();

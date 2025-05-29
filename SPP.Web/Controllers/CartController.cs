@@ -73,9 +73,10 @@ namespace SPP.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateQuantity(Guid id, int quantity)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateQuantity([FromBody] UpdateQuantityDto model)
         {
-            if (quantity < 1)
+            if (model.Quantity < 1)
                 return BadRequest("Quantity must be at least 1");
 
             var user = await userManager.GetUserAsync(User);
@@ -84,29 +85,32 @@ namespace SPP.Web.Controllers
 
             var cart = await context.Orders
                 .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Product)
                 .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
 
             if (cart == null)
                 return NotFound("Cart not found");
 
-            var item = cart.OrderItems.FirstOrDefault(i => i.ProductId == id);
+            var item = cart.OrderItems.FirstOrDefault(i => i.ProductId == model.Id);
             if (item == null)
                 return NotFound("Item not found in cart");
 
-            item.Quantity = quantity;
+            item.Quantity = model.Quantity;
             await context.SaveChangesAsync();
 
-            // Calculate new totals
             var subtotal = cart.OrderItems.Sum(i => i.Product.Price * i.Quantity);
+
             var tax = subtotal * 0.20m;
             var total = subtotal + tax;
 
-            return Json(new { 
-                success = true, 
+            return Json(new
+            {
+                success = true,
                 subtotal = subtotal.ToString("C"),
                 tax = tax.ToString("C"),
                 total = total.ToString("C")
             });
         }
+
     }
-} 
+}

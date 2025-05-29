@@ -1,3 +1,4 @@
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery antiforgery
 @using SPP.ViewModels
 @model CartViewModel
 
@@ -6,7 +7,7 @@
 }
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/cart.css" />
+    @* <link rel="stylesheet" href="~/css/cart.css" /> *@
 }
 
 @section Scripts {
@@ -14,6 +15,7 @@
 }
 
 <div class="container py-5">
+    <input type="hidden" name="__RequestVerificationToken" value="@antiforgery.GetAndStoreTokens(Context).RequestToken" />
     <h1 class="text-center mb-5 display-4 fw-bold">Shopping Cart</h1>
 
     @if (Model?.Items == null || !Model.Items.Any())
