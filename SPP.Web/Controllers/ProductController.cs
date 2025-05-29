@@ -81,18 +81,8 @@ namespace SPP.Web.Controllers
                 };
                 context.OrderItems.Add(newItem);
             }
-
-            try
-            {
-                await context.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                // If we get a concurrency exception, reload the cart and try again
-                context.ChangeTracker.Clear();
-                return await AddToCart(id);
-            }
+            await context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
     }
 }
