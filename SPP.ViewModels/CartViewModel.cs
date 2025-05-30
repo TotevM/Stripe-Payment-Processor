@@ -1,12 +1,11 @@
-using System.ComponentModel.DataAnnotations;
-
+using static SPP.Common.AppConstants;
 namespace SPP.ViewModels
 {
     public class CartViewModel
     {
         public List<CartItemViewModel> Items { get; set; } = new List<CartItemViewModel>();
         public decimal Subtotal => Items.Sum(item => item.Price * item.Quantity);
-        public decimal Tax => Subtotal * 0.20m; // 20% tax rate
+        public decimal Tax => Math.Round(Subtotal * TaxRate/100,2);
         public decimal Total => Subtotal + Tax;
     }
 

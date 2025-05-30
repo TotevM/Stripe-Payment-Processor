@@ -29,7 +29,7 @@ namespace SPP.Web.Controllers
 
             var cart = await context.Orders
                 .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.Product)
+                .ThenInclude(oi => oi.Product)
                 .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
 
             if (cart == null)
@@ -42,7 +42,7 @@ namespace SPP.Web.Controllers
                     Id = oi.ProductId,
                     Name = oi.Product.Name,
                     ImageUrl = oi.Product.ImageUrl,
-                    Price = oi.Product.Price,
+                    Price = Math.Round(oi.Product.Price,2),
                     Quantity = oi.Quantity
                 }).ToList()
             };
@@ -102,8 +102,8 @@ namespace SPP.Web.Controllers
 
             var subtotal = cart.OrderItems.Sum(i => i.Product.Price * i.Quantity);
 
-            var tax = (double)subtotal * TaxRate/100;
-            var total = (double)subtotal + tax;
+            var tax = subtotal * TaxRate/100;
+            var total = subtotal + tax;
 
             return Json(new
             {

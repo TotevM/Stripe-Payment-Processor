@@ -5,5 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+<ItemGroup>
+	<ProjectReference Include="..\SPP.Common\SPP.Common.csproj" />
+	<ProjectReference Include="..\SPP.Data\SPP.Data.csproj" />
+</ItemGroup>
 </Project>

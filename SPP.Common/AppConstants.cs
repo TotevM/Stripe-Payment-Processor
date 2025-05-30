@@ -1,7 +1,7 @@
 ﻿namespace SPP.Common
 {
-    public class AppConstants
+    public static class AppConstants
     {
-        public const double TaxRate = 20.00;
+        public const decimal TaxRate = 20m;
     }
 }

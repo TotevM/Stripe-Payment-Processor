@@ -19,7 +19,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SPP.Data\SPP.Data.csproj" />
-    <ProjectReference Include="..\SPP.ViewModels\SPP.ViewModels.csproj" />
+	  <ProjectReference Include="..\SPP.Common\SPP.Common.csproj" />
+	  <ProjectReference Include="..\SPP.ViewModels\SPP.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

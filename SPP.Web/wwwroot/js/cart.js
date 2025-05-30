@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Update totals
                     document.getElementById('subtotal').textContent = data.subtotal;
-                    document.getElementById('tax').textContent = data.tax;
-                    document.getElementById('total').textContent = data.total;
+                    document.getElementById('tax').textContent = data.tax.ToSting(2);
+                    document.getElementById('total').textContent = data.total.ToSting(2);
                 }
             } catch (error) {
                 console.error('Error updating quantity:', error);
