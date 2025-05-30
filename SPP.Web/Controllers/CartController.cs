@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SPP.Data.Models;
 using SPP.ViewModels;
+using System.Globalization;
+using static SPP.Common.AppConstants;
 
 namespace SPP.Web.Controllers
 {
@@ -100,15 +102,15 @@ namespace SPP.Web.Controllers
 
             var subtotal = cart.OrderItems.Sum(i => i.Product.Price * i.Quantity);
 
-            var tax = subtotal * 0.20m;
-            var total = subtotal + tax;
+            var tax = (double)subtotal * TaxRate/100;
+            var total = (double)subtotal + tax;
 
             return Json(new
             {
                 success = true,
-                subtotal = subtotal.ToString("C"),
-                tax = tax.ToString("C"),
-                total = total.ToString("C")
+                subtotal = subtotal.ToString("C", CultureInfo.GetCultureInfo("en-US")),
+                tax = tax.ToString("C", CultureInfo.GetCultureInfo("en-US")),
+                total = total.ToString("C", CultureInfo.GetCultureInfo("en-US"))
             });
         }
 
