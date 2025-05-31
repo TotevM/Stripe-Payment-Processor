@@ -8,14 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const quantityDisplay = document.querySelector(`.quantity-display[data-product-id="${productId}"]`);
             let currentQuantity = parseInt(quantityDisplay.textContent);
             
-            // Update quantity based on action
             if (action === 'increase') {
                 currentQuantity++;
             } else if (action === 'decrease') {
                 if (currentQuantity > 1) {
                     currentQuantity--;
                 } else {
-                    return; // Don't allow quantity less than 1
+                    return;
                 }
             }
             
@@ -39,13 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const data = await response.json();
                 
                 if (data.success) {
-                    // Update quantity display
                     quantityDisplay.textContent = currentQuantity;
                     
-                    // Update totals
                     document.getElementById('subtotal').textContent = data.subtotal;
-                    document.getElementById('tax').textContent = data.tax.ToSting(2);
-                    document.getElementById('total').textContent = data.total.ToSting(2);
+                    document.getElementById('tax').textContent = data.tax;
+                    document.getElementById('total').textContent = data.total;
                 }
             } catch (error) {
                 console.error('Error updating quantity:', error);
@@ -53,4 +50,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-}); 
+})
