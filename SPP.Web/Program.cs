@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SPP.Data.Models;
+using Stripe;
 using StripePaymentProcessor.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +33,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    builder.Configuration.AddUserSecrets<Program>();
 }
 else
 {
@@ -43,6 +45,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+StripeConfiguration.ApiKey = builder.Configuration["StripeAPI:SecretKey"] ?? 
+    throw new InvalidOperationException("Stripe Secret Key not found in configuration.");
 
 app.UseAuthentication();
 app.UseAuthorization();

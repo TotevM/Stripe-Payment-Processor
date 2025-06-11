@@ -71,6 +71,7 @@ namespace SPP.Web.Controllers
             };
             var service= new SessionService();
             Session session = service.Create(options);
+            Response.Headers.Add("Location", session.Url);
             return new StatusCodeResult(303);
         }
     }
