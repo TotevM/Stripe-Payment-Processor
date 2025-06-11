@@ -51,7 +51,6 @@ namespace SPP.Web.Controllers
                 CancelUrl = domain + "Checkout/Cancel",
 
                 CustomerEmail=user.Email,
-                Customer=user.UserName,
                 Mode = "payment",
                 //PaymentMethodTypes = new List<string> { "card" },
                 LineItems = items.Select(item => new SessionLineItemOptions
@@ -64,7 +63,7 @@ namespace SPP.Web.Controllers
                             Name = item.Name,
                             Images = item.ImageUrl != null ? new List<string> { domain + item.ImageUrl } : null
                         },
-                        UnitAmount = (long)(item.Price * item.Quantity)
+                        UnitAmount = (long)item.Price * 100
                     },
                     Quantity = item.Quantity
                 }).ToList(),
