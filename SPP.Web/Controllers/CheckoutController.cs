@@ -84,9 +84,30 @@ namespace SPP.Web.Controllers
 
             if (session.PaymentStatus == "paid")
             {
-                return View("Success");
+                return RedirectToAction("Success", "Checkout");
             }
             return View("PaymentFailed");
+        }
+
+        public async Task<IActionResult> Success() 
+        {
+            var user = await userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized();
+
+            Order? order = await context.Orders.Where(x => !x.IsPaid && x.UserId==user.Id).FirstOrDefaultAsync();
+            ;
+            if (order==null)
+            {
+                return View("PaymentFailed");
+            }
+
+            order.PaidAt = DateTime.Now;
+            order.IsPaid = true;
+            await context.SaveChangesAsync();
+
+
+            return View();
         }
     }
 }
