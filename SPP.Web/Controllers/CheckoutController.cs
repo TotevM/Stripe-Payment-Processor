@@ -46,7 +46,7 @@ namespace SPP.Web.Controllers
 
             SessionCreateOptions options = new SessionCreateOptions
             {
-                SuccessUrl = domain + "Checkout/Success",
+                SuccessUrl = domain + "Checkout/OrderConfirmation",
                 CancelUrl = domain + "Checkout/Cancel",
 
                 CustomerEmail = user.Email,
@@ -59,7 +59,7 @@ namespace SPP.Web.Controllers
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
                             Name = item.Name,
-                            Images = item.ImageUrl != null ? new List<string> {item.ImageUrl} : null
+                            Images = item.ImageUrl != null ? new List<string> { item.ImageUrl } : null
                         },
                         UnitAmount = (long)Math.Round(item.TotalPrice * 100)
                     },
@@ -69,8 +69,24 @@ namespace SPP.Web.Controllers
 
             var service = new SessionService();
             Session session = service.Create(options);
+
+            TempData["Session"] = session.Id;
+
             Response.Headers.Add("Location", session.Url);
             return new StatusCodeResult(303);
+        }
+
+        public IActionResult OrderConfirmation()
+        {
+            var service = new SessionService();
+
+            Session session = service.Get(TempData["Session"]!.ToString());
+
+            if (session.PaymentStatus == "paid")
+            {
+                return View("Success");
+            }
+            return View("PaymentFailed");
         }
     }
 }
