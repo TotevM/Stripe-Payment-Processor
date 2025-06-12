@@ -52,7 +52,6 @@ namespace SPP.Web.Controllers
 
                 CustomerEmail=user.Email,
                 Mode = "payment",
-                //PaymentMethodTypes = new List<string> { "card" },
                 LineItems = items.Select(item => new SessionLineItemOptions
                 {
                     PriceData = new SessionLineItemPriceDataOptions
@@ -63,7 +62,7 @@ namespace SPP.Web.Controllers
                             Name = item.Name,
                             Images = item.ImageUrl != null ? new List<string> { domain + item.ImageUrl } : null
                         },
-                        UnitAmount = (long)item.Price * 100
+                        UnitAmount = (long)Math.Round(item.TotalPrice * 100)
                     },
                     Quantity = item.Quantity
                 }).ToList(),
