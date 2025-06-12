@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using SPP.Data.Models;
 using SPP.ViewModels;
 using Stripe.Checkout;
-using System.Globalization;
 
 namespace SPP.Web.Controllers
 {
@@ -50,7 +49,7 @@ namespace SPP.Web.Controllers
                 SuccessUrl = domain + "Checkout/Success",
                 CancelUrl = domain + "Checkout/Cancel",
 
-                CustomerEmail=user.Email,
+                CustomerEmail = user.Email,
                 Mode = "payment",
                 LineItems = items.Select(item => new SessionLineItemOptions
                 {
@@ -60,14 +59,15 @@ namespace SPP.Web.Controllers
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
                             Name = item.Name,
-                            Images = item.ImageUrl != null ? new List<string> { domain + item.ImageUrl } : null
+                            Images = item.ImageUrl != null ? new List<string> {item.ImageUrl} : null
                         },
                         UnitAmount = (long)Math.Round(item.TotalPrice * 100)
                     },
                     Quantity = item.Quantity
                 }).ToList(),
             };
-            var service= new SessionService();
+
+            var service = new SessionService();
             Session session = service.Create(options);
             Response.Headers.Add("Location", session.Url);
             return new StatusCodeResult(303);
