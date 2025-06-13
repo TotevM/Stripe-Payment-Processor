@@ -96,7 +96,7 @@ namespace SPP.Web.Controllers
                 return Unauthorized();
 
             Order? order = await context.Orders.Where(x => !x.IsPaid && x.UserId==user.Id).FirstOrDefaultAsync();
-            ;
+            
             if (order==null)
             {
                 return View("PaymentFailed");
@@ -105,7 +105,6 @@ namespace SPP.Web.Controllers
             order.PaidAt = DateTime.Now;
             order.IsPaid = true;
             await context.SaveChangesAsync();
-
 
             return View();
         }

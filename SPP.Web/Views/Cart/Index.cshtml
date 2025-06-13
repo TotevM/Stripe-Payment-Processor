@@ -6,10 +6,6 @@
     ViewData["Title"] = "Shopping Cart";
 }
 
-@section Styles {
-    @* <link rel="stylesheet" href="~/css/cart.css" /> *@
-}
-
 @section Scripts {
     <script src="~/js/cart.js"></script>
 }
@@ -57,11 +53,9 @@
                                         <span class="h5 text-primary">$@item.Price</span>
                                     </div>
                                     <div class="col-md-3 text-end">
-                                        <form asp-controller="Cart" asp-action="RemoveFromCart" asp-route-id="@item.Id" method="post" class="d-inline">
-                                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                        <button type="submit" class="btn btn-outline-danger btn-sm del-btn" data-product-id="@item.Id">
                                                 <i class="bi bi-trash"></i>
                                             </button>
-                                        </form>
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
     const quantityButtons = document.querySelectorAll('.quantity-btn');
-    
+    const deleteButtons = document.querySelectorAll('.del-btn');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', async function () {
+            const productId = this.dataset.productId;
+            const response = await fetch('/Cart/UpdateQuantity', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                },
+                body: JSON.stringify({
+                    id: productId,
+                    quantity: 0
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+
+            if (data.success) {
+                document.getElementById('subtotal').textContent = data.subtotal;
+                document.getElementById('tax').textContent = data.tax;
+                document.getElementById('total').textContent = data.total;
+            }
+
+            const product = this.closest('.cart-item');
+            product.remove();
+
+
+
+        })
+    })
+
     quantityButtons.forEach(button => {
         button.addEventListener('click', async function() {
             const action = this.dataset.action;

@@ -42,7 +42,7 @@ namespace SPP.Web.Controllers
                     Id = oi.ProductId,
                     Name = oi.Product.Name,
                     ImageUrl = oi.Product.ImageUrl,
-                    Price = Math.Round(oi.Product.Price,2),
+                    Price = Math.Round(oi.Product.Price, 2),
                     Quantity = oi.Quantity
                 }).ToList()
             };
@@ -78,32 +78,49 @@ namespace SPP.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateQuantity([FromBody] UpdateQuantityDto model)
         {
-            if (model.Quantity < 1)
-                return BadRequest("Quantity must be at least 1");
-
+            Order? cart = new();
             var user = await userManager.GetUserAsync(User);
             if (user == null)
                 return Unauthorized();
 
-            var cart = await context.Orders
+            if (model.Quantity == 0)
+            {
+                var currentCart = await context.Orders
+                    .Include(o => o.OrderItems)
+                    .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
+
+                if (currentCart == null)
+                    return NotFound("Cart not found");
+
+                var currentItem = currentCart.OrderItems.FirstOrDefault(i => i.ProductId == model.Id);
+                if (currentItem == null)
+                    return NotFound("Item not found in cart");
+
+                context.OrderItems.Remove(currentItem);
+                await context.SaveChangesAsync();
+            }
+            else
+            {
+                cart = await context.Orders
                 .Include(o => o.OrderItems)
                 .ThenInclude(oi => oi.Product)
                 .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
 
-            if (cart == null)
-                return NotFound("Cart not found");
+                if (cart == null)
+                    return NotFound("Cart not found");
 
-            var item = cart.OrderItems.FirstOrDefault(i => i.ProductId == model.Id);
-            if (item == null)
-                return NotFound("Item not found in cart");
+                var item = cart.OrderItems.FirstOrDefault(i => i.ProductId == model.Id);
+                if (item == null)
+                    return NotFound("Item not found in cart");
 
-            item.Quantity = model.Quantity;
-            await context.SaveChangesAsync();
+                item.Quantity = model.Quantity;
+                await context.SaveChangesAsync();
 
-            var subtotal = cart.OrderItems.Sum(i => i.Product.Price * i.Quantity);
 
-            var tax = subtotal * TaxRate/100;
-            var total = subtotal + tax;
+            }
+                var subtotal = cart.OrderItems.Sum(i => i.Product.Price * i.Quantity);
+                var tax = subtotal * TaxRate / 100;
+                var total = subtotal + tax;
 
             return Json(new
             {
