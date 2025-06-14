@@ -50,29 +50,29 @@ namespace SPP.Web.Controllers
             return View(viewModel);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> RemoveFromCart(Guid id)
-        {
-            var user = await userManager.GetUserAsync(User);
-            if (user == null)
-                return Unauthorized();
+        //[HttpPost]
+        //public async Task<IActionResult> RemoveFromCart(Guid id)
+        //{
+        //    var user = await userManager.GetUserAsync(User);
+        //    if (user == null)
+        //        return Unauthorized();
 
-            var cart = await context.Orders
-                .Include(o => o.OrderItems)
-                .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
+        //    var cart = await context.Orders
+        //        .Include(o => o.OrderItems)
+        //        .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
 
-            if (cart == null)
-                return NotFound("Cart not found");
+        //    if (cart == null)
+        //        return NotFound("Cart not found");
 
-            var item = cart.OrderItems.FirstOrDefault(i => i.ProductId == id);
-            if (item == null)
-                return NotFound("Item not found in cart");
+        //    var item = cart.OrderItems.FirstOrDefault(i => i.ProductId == id);
+        //    if (item == null)
+        //        return NotFound("Item not found in cart");
 
-            context.OrderItems.Remove(item);
-            await context.SaveChangesAsync();
+        //    context.OrderItems.Remove(item);
+        //    await context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
-        }
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -85,14 +85,15 @@ namespace SPP.Web.Controllers
 
             if (model.Quantity == 0)
             {
-                var currentCart = await context.Orders
-                    .Include(o => o.OrderItems)
-                    .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
+                cart = await context.Orders
+                .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Product)
+                .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
 
-                if (currentCart == null)
+                if (cart == null)
                     return NotFound("Cart not found");
 
-                var currentItem = currentCart.OrderItems.FirstOrDefault(i => i.ProductId == model.Id);
+                var currentItem = cart.OrderItems.FirstOrDefault(i => i.ProductId == model.Id);
                 if (currentItem == null)
                     return NotFound("Item not found in cart");
 

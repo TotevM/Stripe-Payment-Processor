@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     deleteButtons.forEach(button => {
         button.addEventListener('click', async function () {
+
             const productId = this.dataset.productId;
             const response = await fetch('/Cart/UpdateQuantity', {
                 method: 'POST',
@@ -21,6 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('Network response was not ok');
             }
 
+            const remainingProducts = document.querySelectorAll('.cart-item');
+            if (remainingProducts.length === 1) {
+                window.location.href = '/Cart';
+            } else {
             const data = await response.json();
 
             if (data.success) {
@@ -31,11 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const product = this.closest('.cart-item');
             product.remove();
-
-            const remainingProducts = document.querySelectorAll('.cart-item');
-            if (remainingProducts.length === 0) {
-                window.location.href = '/Cart';
             }
+
         })
     })
 
