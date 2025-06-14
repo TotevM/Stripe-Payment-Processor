@@ -32,8 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const product = this.closest('.cart-item');
             product.remove();
 
-
-
+            const remainingProducts = document.querySelectorAll('.cart-item');
+            if (remainingProducts.length === 0) {
+                window.location.href = '/Cart';
+            }
         })
     })
 
