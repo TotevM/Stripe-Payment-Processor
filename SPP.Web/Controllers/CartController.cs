@@ -50,30 +50,6 @@ namespace SPP.Web.Controllers
             return View(viewModel);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> RemoveFromCart(Guid id)
-        //{
-        //    var user = await userManager.GetUserAsync(User);
-        //    if (user == null)
-        //        return Unauthorized();
-
-        //    var cart = await context.Orders
-        //        .Include(o => o.OrderItems)
-        //        .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
-
-        //    if (cart == null)
-        //        return NotFound("Cart not found");
-
-        //    var item = cart.OrderItems.FirstOrDefault(i => i.ProductId == id);
-        //    if (item == null)
-        //        return NotFound("Item not found in cart");
-
-        //    context.OrderItems.Remove(item);
-        //    await context.SaveChangesAsync();
-
-        //    return RedirectToAction(nameof(Index));
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateQuantity([FromBody] UpdateQuantityDto model)
@@ -132,5 +108,22 @@ namespace SPP.Web.Controllers
             });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetItemCount()
+        {
+            var user = await userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized();
+
+            var cart = await context.Orders
+                .Include(o => o.OrderItems)
+                .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
+
+            if (cart == null)
+                return Json(0);
+
+            var count = cart.OrderItems.Count;
+            return Json(count);
+        }
     }
 }

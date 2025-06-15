@@ -2,6 +2,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const quantityButtons = document.querySelectorAll('.quantity-btn');
     const deleteButtons = document.querySelectorAll('.del-btn');
 
+    async function updateCartCounter() {
+        try {
+            const response = await fetch('/Cart/GetItemCount');
+            if (response.ok) {
+                const count = await response.json();
+                const counter = document.getElementById('cartCounter');
+                counter.textContent = count;
+                counter.style.display = count > 0 ? 'block' : 'none';
+            }
+        } catch (error) {
+            console.error('Error updating cart counter:', error);
+        }
+    }
+
     deleteButtons.forEach(button => {
         button.addEventListener('click', async function () {
 
@@ -32,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('subtotal').textContent = data.subtotal;
                 document.getElementById('tax').textContent = data.tax;
                 document.getElementById('total').textContent = data.total;
+                await updateCartCounter();
             }
 
             const product = this.closest('.cart-item');
@@ -83,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('subtotal').textContent = data.subtotal;
                     document.getElementById('tax').textContent = data.tax;
                     document.getElementById('total').textContent = data.total;
+                    await updateCartCounter();
                 }
             } catch (error) {
                 console.error('Error updating quantity:', error);

@@ -82,7 +82,9 @@ namespace SPP.Web.Controllers
                 context.OrderItems.Add(newItem);
             }
             await context.SaveChangesAsync();
-            return RedirectToAction("Index");
+
+            var count = cart.OrderItems.Count;
+            return Json(new { success = true, count });
         }
     }
 }

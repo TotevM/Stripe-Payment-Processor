@@ -22,13 +22,13 @@
                         <div class="card-img-overlay d-flex align-items-center justify-content-center">
                             <div class="btn-group">
                                 <a href="#" class="btn btn-outline-light btn-sm me-2">View Details</a>
-                                <form asp-controller="Product" asp-action="AddToCart" asp-route-id="@product.Id" method="post" class="d-inline">
+                                <form asp-controller="Product" asp-action="AddToCart" asp-route-id="@product.Id" method="post" class="d-inline add-to-cart-form">
+                                    @Html.AntiForgeryToken()
                                     <button type="submit" class="btn btn-primary btn-sm">
                                         <i class="fas fa-shopping-cart me-1"></i>
                                         Add to Cart
                                     </button>
                                 </form>
-
                             </div>
                         </div>
                     </div>
@@ -44,3 +44,7 @@
         }
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/products.js" asp-append-version="true"></script>
+}
