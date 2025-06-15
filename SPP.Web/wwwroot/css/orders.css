@@ -52,6 +52,46 @@
     transform: translateY(-1px);
 }
 
+/* Filter styles */
+.form-check-input:checked {
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.form-check-input:focus {
+    border-color: #1b6ec2;
+    box-shadow: 0 0 0 0.25rem rgba(27, 110, 194, 0.25);
+}
+
+.datepicker {
+    cursor: pointer;
+}
+
+.flatpickr-calendar {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+.flatpickr-day.selected {
+    background: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.flatpickr-day:hover {
+    background: #e9ecef;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .table-responsive {
@@ -70,5 +110,13 @@
     
     .badge {
         margin-top: 0.5rem;
+    }
+
+    .filter-card {
+        margin-bottom: 1rem;
+    }
+
+    .datepicker {
+        font-size: 0.9rem;
     }
 } 

@@ -7,80 +7,138 @@
 
 @section Styles {
     <link rel="stylesheet" href="~/css/orders.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 }
 
 <div class="container py-5">
     <h1 class="text-center mb-5 display-4 fw-bold">Order History</h1>
 
-    @if (!Model.Any())
-    {
-        <div class="text-center py-5">
-            <i class="bi bi-receipt fs-1 text-muted mb-3"></i>
-            <h3 class="text-muted">No orders found</h3>
-            <p class="text-muted">You haven't placed any orders yet.</p>
-            <a asp-controller="Product" asp-action="Index" class="btn btn-primary mt-3">
-                Start Shopping
-            </a>
-        </div>
-    }
-    else
-    {
-        <div class="row">
-            @foreach (var order in Model.OrderByDescending(o => o.CreatedAt))
-            {
-                <div class="col-12 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-white">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h5 class="mb-0">Order #@order.Id.ToString().Substring(0, 8)</h5>
-                                    <small class="text-muted">Placed on @order.CreatedAt.ToString("MMMM dd, yyyy")</small>
-                                </div>
-                                <span class="badge bg-success">Completed</span>
-                            </div>
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Date Range Filter</h5>
+                    <div class="row g-3">
+                        <div class="col-md-5">
+                            <label class="form-label">From Date</label>
+                            <input type="text" class="form-control datepicker" id="fromDate" placeholder="Select date">
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th class="text-end">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in order.OrderItems)
-                                        {
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        @if (!string.IsNullOrEmpty(item.Product.ImageUrl))
-                                                        {
-                                                            <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="order-item-image me-3">
-                                                        }
-                                                        <span>@item.Product.Name</span>
-                                                    </div>
-                                                </td>
-                                                <td>$@item.Product.Price</td>
-                                                <td>@item.Quantity</td>
-                                                <td class="text-end">$@(item.Product.Price * item.Quantity)</td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="3" class="text-end fw-bold">Order Total:</td>
-                                            <td class="text-end fw-bold">$@order.OrderItems.Sum(item => item.Product.Price * item.Quantity)</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                        <div class="col-md-5">
+                            <label class="form-label">To Date</label>
+                            <input type="text" class="form-control datepicker" id="toDate" placeholder="Select date">
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button class="btn btn-primary w-100" id="applyDateFilter">Filter</button>
                         </div>
                     </div>
                 </div>
-            }
+            </div>
         </div>
-    }
-</div> 
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Price Range Filter</h5>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input price-filter" type="checkbox" value="under500" id="under500">
+                        <label class="form-check-label" for="under500">
+                            Under $500
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input price-filter" type="checkbox" value="500to1000" id="500to1000">
+                        <label class="form-check-label" for="500to1000">
+                            $500 - $1000
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input price-filter" type="checkbox" value="over1000" id="over1000">
+                        <label class="form-check-label" for="over1000">
+                            Over $1000
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ordersContainer">
+        @if (!Model.Any())
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-receipt fs-1 text-muted mb-3"></i>
+                <h3 class="text-muted">No orders found</h3>
+                <p class="text-muted">You haven't placed any orders yet.</p>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-primary mt-3">
+                    Start Shopping
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var order in Model.OrderByDescending(o => o.CreatedAt))
+                {
+                    <div class="col-12 mb-4 order-card" 
+                         data-order-date="@order.CreatedAt.ToString("yyyy-MM-dd")"
+                         data-order-total="@order.OrderItems.Sum(item => item.Product.Price * item.Quantity)">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-white">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="mb-0">Order #@order.Id.ToString().Substring(0, 8)</h5>
+                                        <small class="text-muted">Placed on @order.CreatedAt.ToString("MMMM dd, yyyy")</small>
+                                    </div>
+                                    <span class="badge bg-success">Completed</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th class="text-end">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in order.OrderItems)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            @if (!string.IsNullOrEmpty(item.Product.ImageUrl))
+                                                            {
+                                                                <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="order-item-image me-3">
+                                                            }
+                                                            <span>@item.Product.Name</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>$@item.Product.Price</td>
+                                                    <td>@item.Quantity</td>
+                                                    <td class="text-end">$@(item.Product.Price * item.Quantity)</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3" class="text-end fw-bold">Order Total:</td>
+                                                <td class="text-end fw-bold">$@order.OrderItems.Sum(item => item.Product.Price * item.Quantity)</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="~/js/orders.js"></script>
+} 
