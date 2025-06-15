@@ -45,7 +45,6 @@ namespace SPP.Web.Controllers
             if (product == null)
                 return NotFound("Product not found or has been deleted.");
 
-            // Get or create user's active cart
             var cart = await context.Orders
                 .Include(o => o.OrderItems)
                 .FirstOrDefaultAsync(o => o.UserId == user.Id && !o.IsPaid);
@@ -63,7 +62,6 @@ namespace SPP.Web.Controllers
                 context.Orders.Add(cart);
             }
 
-            // Check if product already in cart
             var existingItem = cart.OrderItems.FirstOrDefault(i => i.ProductId == id);
             if (existingItem != null)
             {
@@ -85,6 +83,21 @@ namespace SPP.Web.Controllers
 
             var count = cart.OrderItems.Count;
             return Json(new { success = true, count });
+        }
+
+        public async Task<IActionResult> CheckOrders()
+        {
+            var user = await userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized();
+
+            var orders = await context.Orders
+                .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Product)
+                .Where(o => o.IsPaid)
+                .ToListAsync();
+
+            return View(orders);
         }
     }
 }
