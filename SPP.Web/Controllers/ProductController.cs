@@ -25,7 +25,8 @@ namespace SPP.Web.Controllers
                 Id = x.Id,
                 Name = x.Name,
                 Price = x.Price,
-                ImageUrl = x.ImageUrl
+                ImageUrl = x.ImageUrl,
+                Description = x.Description
             }).ToListAsync();
 
             return View(products);
