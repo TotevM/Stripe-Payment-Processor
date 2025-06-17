@@ -59,11 +59,14 @@
     padding: 0.5em 1em;
 }
 
-/* Modal Styles */
 .modal-content {
     border-radius: 15px;
     border: none;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.modal-dialog {
+    max-height: 80vh;
 }
 
 .modal-header {
@@ -99,6 +102,7 @@
 }
 
 #modalProductImage {
+    max-height: 50vh;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
