@@ -6,76 +6,208 @@
     <link rel="stylesheet" href="~/css/home.css" />
 }
 
-<div class="hero-section">
+<section class="hero-section">
     <div class="hero-content">
-        <h1 class="hero-title">Timeless Elegance</h1>
-        <p class="hero-subtitle">Discover our collection of exquisite jewelry pieces</p>
-        <a href="/Product" class="cta-button">Explore Collection</a>
+        <div class="hero-text-container">
+            <h1 class="hero-title">
+                <span class="title-line">Timeless</span>
+                <span class="title-line">Elegance</span>
+            </h1>
+            <p class="hero-subtitle">Where luxury meets craftsmanship in every piece</p>
+            <div class="hero-cta">
+                <a href="/Product" class="cta-button primary">
+                    <span>Explore Collection</span>
+                </a>
+                <a href="#about" class="cta-button secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-elements">
+                <div class="floating-item" data-speed="0.8">💎</div>
+                <div class="floating-item" data-speed="1.2">✨</div>
+                <div class="floating-item" data-speed="0.6">🌟</div>
+            </div>
+        </div>
     </div>
-    <div class="hero-overlay"></div>
-</div>
+    <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+    </div>
+</section>
 
-<section class="featured-categories">
+<section class="stats-section">
     <div class="container">
-        <h2 class="section-title">Our Collections</h2>
-        <div class="categories-grid">
-            <div class="category-card">
-                <img src="~/images/rings.jpg" alt="Rings Collection">
-                <h3>Rings</h3>
-                <a href="/Product?category=rings" class="category-link">View Collection</a>
+        <div class="stats-grid">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-number" data-target="15000">0</div>
+                <div class="stat-label">Happy Customers</div>
             </div>
-            <div class="category-card">
-                <img src="~/images/necklaces.jpg" alt="Necklaces Collection">
-                <h3>Necklaces</h3>
-                <a href="/Product?category=necklaces" class="category-link">View Collection</a>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-label">Unique Pieces</div>
             </div>
-            <div class="category-card">
-                <img src="~/images/earrings.jpg" alt="Earrings Collection">
-                <h3>Earrings</h3>
-                <a href="/Product?category=earrings" class="category-link">View Collection</a>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-number" data-target="25">0</div>
+                <div class="stat-label">Years Experience</div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="testimonials">
+<section class="featured-categories">
     <div class="container">
-        <h2 class="section-title">Client Testimonials</h2>
-        <div class="testimonials-slider">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"The craftsmanship of Luxora's pieces is simply extraordinary. Each piece tells a unique story."</p>
-                    <div class="testimonial-author">
-                        <img src="~/appimg/clients/Sarah.jpg" alt="Sarah Johnson">
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <div class="rating">★★★★★</div>
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Our Collections</h2>
+            <p class="section-subtitle">Discover our handcrafted pieces that tell your story</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-image">
+                    <img src="~/appimg/home-page-products/home-ring.jpg" alt="Rings Collection">
+                    <div class="card-overlay">
+                        <div class="overlay-content">
+                            <h3>Rings</h3>
+                            <p>Symbols of love and commitment</p>
+                            <a href="/Product?category=rings" class="category-link">
+                                <span>View Collection</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"I've never seen such attention to detail. The quality of their jewelry is unmatched."</p>
-                    <div class="testimonial-author">
-                        <img src="~/appimg/clients/Michael.jpg" alt="Michael Chen">
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <div class="rating">★★★★★</div>
+            <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-image">
+                    <img src="~/appimg/home-page-products/home-necklace.jpg" alt="Necklaces Collection">
+                    <div class="card-overlay">
+                        <div class="overlay-content">
+                            <h3>Necklaces</h3>
+                            <p>Timeless elegance for every occasion</p>
+                            <a href="/Product?category=necklaces" class="category-link">
+                                <span>View Collection</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"Luxora's pieces are not just jewelry, they're works of art that become family heirlooms."</p>
-                    <div class="testimonial-author">
-                        <img src="~/appimg/clients/Emma.jpg" alt="Emma Thompson">
-                        <div class="author-info">
-                            <h4>Emma Thompson</h4>
-                            <div class="rating">★★★★★</div>
+            <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-image">
+                    <img src="~/appimg/home-page-products/home-earrings.jpg" alt="Earrings Collection">
+                    <div class="card-overlay">
+                        <div class="overlay-content">
+                            <h3>Earrings</h3>
+                            <p>Perfect accents for your beauty</p>
+                            <a href="/Product?category=earrings" class="category-link">
+                                <span>View Collection</span>
+                            </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ratings-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">Join thousands of satisfied customers worldwide</p>
+        </div>
+        <div class="ratings-grid">
+            <div class="rating-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="rating-stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                </div>
+                <p class="rating-text">"The craftsmanship of Luxora's pieces is simply extraordinary. Each piece tells a unique story that becomes part of your own."</p>
+                <div class="rating-author">
+                    <img src="~/appimg/clients/Sarah.jpg" alt="Sarah Johnson">
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <span>Verified Customer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rating-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="rating-stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                </div>
+                <p class="rating-text">"I've never seen such attention to detail. The quality of their jewelry is unmatched and the customer service is exceptional."</p>
+                <div class="rating-author">
+                    <img src="~/appimg/clients/Michael.jpg" alt="Michael Chen">
+                    <div class="author-info">
+                        <h4>Michael Chen</h4>
+                        <span>Verified Customer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rating-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="rating-stars">
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                    <span class="star filled">★</span>
+                </div>
+                <p class="rating-text">"Luxora's pieces are not just jewelry, they're works of art that become family heirlooms passed down through generations."</p>
+                <div class="rating-author">
+                    <img src="~/appimg/clients/Emma.jpg" alt="Emma Thompson">
+                    <div class="author-info">
+                        <h4>Emma Thompson</h4>
+                        <span>Verified Customer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ratings-cta" data-aos="fade-up" data-aos-delay="400">
+            <a href="/Product" class="cta-button primary">
+                <span>Shop Now</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right">
+                <h2 class="section-title">About Luxora</h2>
+                <p class="about-description">
+                    For over 25 years, Luxora has been crafting exceptional jewelry pieces that capture the essence of timeless elegance. 
+                    Our master artisans combine traditional techniques with modern innovation to create pieces that are not just beautiful, 
+                    but meaningful.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-text">
+                            <h4>Handcrafted Excellence</h4>
+                            <p>Each piece is meticulously crafted by our skilled artisans</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-text">
+                            <h4>Premium Materials</h4>
+                            <p>We use only the finest materials and precious stones</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-text">
+                            <h4>Lifetime Warranty</h4>
+                            <p>Every piece comes with our comprehensive warranty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual" data-aos="fade-left">
+                <div class="about-image-container">
+                    <img src="~/appimg/luxora-about-us.jpg" alt="Luxora Craftsmanship">
+                    <div class="image-overlay"></div>
                 </div>
             </div>
         </div>
@@ -83,5 +215,5 @@
 </section>
 
 @section Scripts {
-    <script src="~/js/index.js" asp-append-version="true"></script>
+    <script src="~/js/home.js" asp-append-version="true"></script>
 }

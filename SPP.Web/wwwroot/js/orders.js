@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize date pickers
     const datePickers = flatpickr(".datepicker", {
         dateFormat: "Y-m-d",
         maxDate: "today",
         allowInput: true
     });
 
-    // Get DOM elements
     const fromDateInput = document.getElementById('fromDate');
     const toDateInput = document.getElementById('toDate');
     const applyDateFilterBtn = document.getElementById('applyDateFilter');
@@ -14,10 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const orderCards = document.querySelectorAll('.order-card');
     const ordersContainer = document.getElementById('ordersContainer');
 
-    // Store the original order cards for resetting filters
     const originalOrderCards = Array.from(orderCards);
 
-    // Function to check if a date is within range
     function isDateInRange(date, fromDate, toDate) {
         if (!fromDate && !toDate) return true;
         
@@ -34,8 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return true;
     }
-
-    // Function to check if price is in selected range
     function isPriceInRange(price, selectedRanges) {
         if (selectedRanges.length === 0) return true;
 
@@ -53,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Function to apply all filters
     function applyFilters() {
         const fromDate = fromDateInput.value;
         const toDate = toDateInput.value;
@@ -61,10 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.value);
 
-        // Clear the container
         ordersContainer.innerHTML = '';
 
-        // Filter and show matching orders
         const filteredOrders = originalOrderCards.filter(card => {
             const orderDate = card.dataset.orderDate;
             const orderTotal = parseFloat(card.dataset.orderTotal);
@@ -76,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (filteredOrders.length === 0) {
-            // Show "no results" message
             ordersContainer.innerHTML = `
                 <div class="text-center py-5">
                     <i class="bi bi-search fs-1 text-muted mb-3"></i>
@@ -85,19 +75,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
         } else {
-            // Add filtered orders back to the container
             filteredOrders.forEach(card => {
                 ordersContainer.appendChild(card.cloneNode(true));
             });
         }
     }
 
-    // Event listeners
     applyDateFilterBtn.addEventListener('click', applyFilters);
 
     priceFilters.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
-            // Uncheck other checkboxes if this one is checked
             if (this.checked) {
                 priceFilters.forEach(otherCheckbox => {
                     if (otherCheckbox !== this) {
@@ -109,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add clear filters button
     const filterCards = document.querySelectorAll('.card.shadow-sm');
     filterCards.forEach(card => {
         const clearButton = document.createElement('button');
@@ -117,12 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
         clearButton.textContent = 'Clear Filter';
         clearButton.addEventListener('click', function() {
             if (card.querySelector('.datepicker')) {
-                // Clear date filters
                 fromDateInput.value = '';
                 toDateInput.value = '';
                 datePickers.forEach(picker => picker.clear());
             } else {
-                // Clear price filters
                 priceFilters.forEach(checkbox => checkbox.checked = false);
             }
             applyFilters();

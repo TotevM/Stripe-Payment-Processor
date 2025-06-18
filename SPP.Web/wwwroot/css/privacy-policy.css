@@ -1,5 +1,4 @@
-﻿﻿ /* privacy-policy.css */
-#privacy-policy {
+﻿#privacy-policy {
     max-width: 1024px;
     margin: 0 auto;
     padding: 2rem 1rem;
@@ -28,7 +27,6 @@
     line-height: 1.6;
 }
 
-/* Collapsible section styles */
 #privacy-policy .collapsible-header {
     width: 100%;
     display: flex;
@@ -41,17 +39,17 @@
     text-align: left;
 }
 
-    #privacy-policy .collapsible-header:hover h2 {
-        color: #3182ce;
-    }
+#privacy-policy .collapsible-header:hover h2 {
+    color: #3182ce;
+}
 
-    #privacy-policy .collapsible-header h2 {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #2d3748;
-        margin: 0;
-        transition: color 0.2s;
-    }
+#privacy-policy .collapsible-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+    transition: color 0.2s;
+}
 
 #privacy-policy .toggle-icon {
     font-size: 1.5rem;
@@ -72,7 +70,7 @@
 }
 
 #privacy-policy .collapsible-section.active .collapsible-content {
-    max-height: 1000px; /* Adjust based on content */
+    max-height: 1000px;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -91,33 +89,33 @@
     line-height: 1.5;
 }
 
-    #privacy-policy li::before {
-        content: "•";
-        color: #3182ce;
-        margin-right: 0.5rem;
-        font-size: 1.25rem;
-        line-height: 1.2;
-    }
+#privacy-policy li::before {
+    content: "•";
+    color: #3182ce;
+    margin-right: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
 
 #privacy-policy .contact-info {
     margin-top: 1rem;
 }
 
-    #privacy-policy .contact-info p {
-        margin: 0.5rem 0;
-        color: #4a5568;
-    }
+#privacy-policy .contact-info p {
+    margin: 0.5rem 0;
+    color: #4a5568;
+}
 
-    #privacy-policy .contact-info a {
-        color: #3182ce;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
+#privacy-policy .contact-info a {
+    color: #3182ce;
+    text-decoration: none;
+    transition: color 0.2s;
+}
 
-        #privacy-policy .contact-info a:hover {
-            color: #2c5282;
-            text-decoration: underline;
-        }
+#privacy-policy .contact-info a:hover {
+    color: #2c5282;
+    text-decoration: underline;
+}
 
 #privacy-policy .last-updated {
     text-align: center;

@@ -4,7 +4,6 @@ function openProductModal(productId, productName, imageUrl, description) {
     document.getElementById('modalProductImage').alt = productName;
     document.getElementById('modalProductDescription').textContent = description || 'No description available.';
     
-    // Set up modal Add to Cart button
     const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
     modalAddToCartBtn.onclick = function() {
         addToCartFromModal(productId);
@@ -100,13 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (response.redirected) {
-                    // Redirect to login page
                     window.location.href = response.url;
                     return;
                 }
                 
                 if (response.status === 401) {
-                    // Unauthorized - redirect to login
                     window.location.href = '/Identity/Account/Login';
                     return;
                 }

@@ -52,7 +52,6 @@
     transform: translateY(-1px);
 }
 
-/* Filter styles */
 .form-check-input:checked {
     background-color: #1b6ec2;
     border-color: #1861ac;
@@ -92,7 +91,6 @@
     border-color: #6c757d;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .table-responsive {
         margin: 0 -1rem;
