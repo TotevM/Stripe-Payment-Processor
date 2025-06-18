@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SPP.Data.Models;
 using SPP.ViewModels;
+using System.Collections.Generic;
 
 namespace SPP.Web.Controllers
 {
@@ -18,16 +19,32 @@ namespace SPP.Web.Controllers
             userManager = _userManager;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string category)
         {
-            var products = await context.Products.Select(x => new ProductViewModel
+            List<ProductViewModel> products = new List<ProductViewModel>();
+            if (category!=null)
             {
-                Id = x.Id,
-                Name = x.Name,
-                Price = x.Price,
-                ImageUrl = x.ImageUrl,
-                Description = x.Description
-            }).ToListAsync();
+                products = await context.Products.Where(x=>x.Type==category).Select(x => new ProductViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description
+                }).ToListAsync();
+            }
+            else
+            {
+
+                products = await context.Products.Select(x => new ProductViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description
+                }).ToListAsync();
+            }
 
             return View(products);
         }
