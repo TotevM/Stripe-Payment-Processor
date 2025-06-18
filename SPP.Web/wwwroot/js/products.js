@@ -24,7 +24,6 @@ function addToCartFromModal(productId) {
     const formData = new FormData();
     formData.append('id', productId);
     
-    // Get the anti-forgery token from the page
     const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
     formData.append('__RequestVerificationToken', token);
     
@@ -36,6 +35,16 @@ function addToCartFromModal(productId) {
         }
     })
     .then(response => {
+        if (response.redirected) {
+            window.location.href = response.url;
+            return;
+        }
+        
+        if (response.status === 401) {
+            window.location.href = '/Identity/Account/Login';
+            return;
+        }
+        
         if (response.ok) {
             button.innerHTML = '<i class="fas fa-check me-2"></i>Added!';
             button.classList.remove('btn-primary');
@@ -90,6 +99,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .then(response => {
+                if (response.redirected) {
+                    // Redirect to login page
+                    window.location.href = response.url;
+                    return;
+                }
+                
+                if (response.status === 401) {
+                    // Unauthorized - redirect to login
+                    window.location.href = '/Identity/Account/Login';
+                    return;
+                }
+                
                 if (response.ok) {
                     button.innerHTML = '<i class="fas fa-check me-1"></i>Added!';
                     button.classList.remove('btn-primary');

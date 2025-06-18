@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SPP.Data.Models;
@@ -7,6 +8,7 @@ using Stripe.Checkout;
 
 namespace SPP.Web.Controllers
 {
+    [Authorize]
     public class CheckoutController : Controller
     {
 
