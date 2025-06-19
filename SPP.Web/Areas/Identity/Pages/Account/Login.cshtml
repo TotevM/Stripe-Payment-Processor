@@ -35,9 +35,6 @@
                 <a id="forgot-password" asp-page="./ForgotPassword" class="small text-decoration-none" style="color: var(--primary-color, #8B5E3C);">Forgot password?</a>
                 <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="small text-decoration-none" style="color: var(--primary-color, #8B5E3C);">Register</a>
             </div>
-            <div class="text-center mt-3">
-                <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="small text-decoration-none" style="color: var(--secondary-color, #a67c52);">Resend email confirmation</a>
-            </div>
         </form>
         @if ((Model.ExternalLogins?.Count ?? 0) > 0)
         {

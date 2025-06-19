@@ -112,7 +112,7 @@ namespace SPP.Web.Controllers
             var orders = await context.Orders
                 .Include(o => o.OrderItems)
                 .ThenInclude(oi => oi.Product)
-                .Where(o => o.IsPaid)
+                .Where(o => o.IsPaid && o.UserId==user.Id)
                 .ToListAsync();
 
             return View(orders);
