@@ -103,6 +103,7 @@ namespace SPP.Web.Controllers
             return Json(new { success = true, count });
         }
 
+        [Authorize]
         public async Task<IActionResult> CheckOrders()
         {
             var user = await userManager.GetUserAsync(User);
