@@ -2,9 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SPP.Data.Models;
 using Stripe;
-using StripePaymentProcessor.Data;
-using SPP.Web.Areas.Identity.Data;
-using static SPP.Extensions;
+using static SPP.Extensions.ApplicationBuilderExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,10 +13,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-    builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders()
-	.AddDefaultUI();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders()
+.AddDefaultUI();
 
 builder.Services.AddAntiforgery(options =>
 {
@@ -48,7 +46,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-StripeConfiguration.ApiKey = builder.Configuration["StripeAPI:SecretKey"] ?? 
+StripeConfiguration.ApiKey = builder.Configuration["StripeAPI:SecretKey"] ??
     throw new InvalidOperationException("Stripe Secret Key not found in configuration.");
 
 app.UseAuthentication();
