@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SPP.Data\SPP.Data.csproj" />
 	  <ProjectReference Include="..\SPP.Common\SPP.Common.csproj" />
+	  <ProjectReference Include="..\SPP.Extensions\SPP.Extensions.csproj" />
 	  <ProjectReference Include="..\SPP.ViewModels\SPP.ViewModels.csproj" />
 	  <PackageReference Include="Stripe.net" Version="47.4.0" />
   </ItemGroup>

@@ -1,10 +1,10 @@
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SPP.Data.Models;
 using Stripe;
 using StripePaymentProcessor.Data;
 using SPP.Web.Areas.Identity.Data;
+using static SPP.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +12,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -63,18 +61,3 @@ app.ApplyMigrations();
 app.MapRazorPages();
 
 app.Run();
-
-public static class ApplicationBuilderExtensions
-{
-	public static IApplicationBuilder ApplyMigrations(this IApplicationBuilder app)
-	{
-		using IServiceScope serviceScope = app.ApplicationServices.CreateScope();
-
-		ApplicationDbContext dbContext = serviceScope
-			.ServiceProvider
-			.GetRequiredService<ApplicationDbContext>()!;
-		dbContext.Database.Migrate();
-
-		return app;
-	}
-} //TODO: move into the extension project
